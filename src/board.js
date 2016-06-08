@@ -3,7 +3,7 @@ import { sample } from './utils';
 
 function Board(rows, cols) {
   this.rows = rows;
-  this.columns = cols;
+  this.cols = cols;
 }
 
 Board.prototype.size = function size() {
@@ -14,7 +14,7 @@ Board.prototype.prepare = function prepare() {
   this.grid = [];
   for (let row = 0; row < this.rows; row++) {
     const rowArray = [];
-    for (let col = 0; col < this.columns; col++) {
+    for (let col = 0; col < this.cols; col++) {
       rowArray[col] = new Cell(row, col);
     }
     this.grid[row] = rowArray;
@@ -23,7 +23,7 @@ Board.prototype.prepare = function prepare() {
 
 Board.prototype.get = function get(row, col) {
   /*eslint-disable */ // TODO: fix this
-  if ((row >= this.rows || row < 0) || (col >= this.columns || col < 0)) {
+  if ((row >= this.rows || row < 0) || (col >= this.cols || col < 0)) {
     return;
   } else {
     return this.grid[row][col];
@@ -33,8 +33,8 @@ Board.prototype.get = function get(row, col) {
 
 Board.prototype.configureCells = function configureCells() {
   this.eachCell((cell) => {
-    const row = cell.x;
-    const col = cell.y;
+    const row = cell.y;
+    const col = cell.x;
     /*eslint-disable */ // TODO: fix this
     cell.north = this.get(row - 1, col);
     cell.south = this.get(row + 1, col);

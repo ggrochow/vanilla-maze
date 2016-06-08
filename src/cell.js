@@ -1,11 +1,11 @@
-function Cell(x, y) {
+function Cell(y, x) {
   this.x = x;
   this.y = y;
-  this.links = {};
+  this.links = [];
 }
 
 Cell.prototype.link = function link(cell, linkBoth = true) {
-  this.links[cell] = true;
+  this.links.push(cell);
   if (linkBoth) {
     cell.link(this, false);
   }
@@ -13,15 +13,15 @@ Cell.prototype.link = function link(cell, linkBoth = true) {
 };
 
 Cell.prototype.unlink = function unlink(cell, unLinkBoth = true) {
-  delete this.links[cell];
+  this.links = this.links.filter(c => c !== cell);
   if (unLinkBoth) {
-    cell.unlink(this);
+    cell.unlink(this, false);
   }
   return this;
 };
 
 Cell.prototype.isLinked = function isLinked(cell) {
-  return this.links[cell] || false;
+  return this.links.includes(cell);
 };
 
 Cell.prototype.neighbours = function neigbours() {

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "wds": "./node_modules/.bin/webpack-dev-server",
+    "bundle": "./node_modules/.bin/webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
