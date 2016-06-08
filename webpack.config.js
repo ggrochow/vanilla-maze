@@ -5,9 +5,6 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:8080',
     './src/index.js'
   ],
-  resolve: {
-    extensions: ['', '.js']
-  },
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
@@ -16,4 +13,16 @@ module.exports = {
   devServer: {
     contentBase: './dist',
   },
+  module: {
+    loaders: [
+      {
+        test: /\.js?$/,
+        exclude: /(node_modules)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
+  }
 };
