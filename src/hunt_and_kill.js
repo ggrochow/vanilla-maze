@@ -1,5 +1,4 @@
 import { sample } from './utils';
-import drawBoardtoCanvas from './canvas_presenter.js';
 
 function huntAndKill(board) {
   let neighbour;
@@ -27,6 +26,5 @@ function huntAndKill(board) {
   }
   return board;
 }
-
 
 export default huntAndKill;

@@ -21,6 +21,12 @@ Board.prototype.prepare = function prepare() {
   }
 };
 
+Board.prototype.insertPlayer = function insertPlayer(player) {
+  const cell = this.randomCell()
+  cell.contents = player;
+  player.cell = cell;
+};
+
 Board.prototype.get = function get(row, col) {
   /*eslint-disable */ // TODO: fix this
   if ((row >= this.rows || row < 0) || (col >= this.cols || col < 0)) {

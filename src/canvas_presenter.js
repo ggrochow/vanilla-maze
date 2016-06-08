@@ -1,18 +1,17 @@
+import { CELL_SIZE } from './constants.js';
+
 function drawBoardtoCanvas(board) {
-  const CELL_SIZE = 25;
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
-  // setup
-  canvas.height = board.rows * CELL_SIZE;
-  canvas.width = board.cols * CELL_SIZE;
-  // endsetup
-  // x = width, y = length
+  ctx.clearRect(0, 0, canvas.height, canvas.width);
+
   board.eachCell(cell => {
     const startX = cell.x * CELL_SIZE;
     const startY = cell.y * CELL_SIZE;
     const endX = startX + CELL_SIZE;
     const endY = startY + CELL_SIZE;
-    // console.log(`N:${cell.isLinked(cell.north)} S:${cell.isLinked(cell.south)} W:${cell.isLinked(cell.west)} E:${cell.isLinked(cell.east)}`)
+
+    // Draw borders
     ctx.beginPath();
     if (!(cell.isLinked(cell.north))) {
       ctx.moveTo(startX, startY);
@@ -31,6 +30,11 @@ function drawBoardtoCanvas(board) {
       ctx.lineTo(startX, endY);
     }
     ctx.stroke();
+
+    // Draw player
+    if (cell.contents) {
+      cell.contents.draw(ctx);
+    }
   });
 }
 
