@@ -1,4 +1,5 @@
 import Cell from './cell';
+import { sample } from './utils';
 
 function Board(rows, cols) {
   this.rows = rows;
@@ -45,12 +46,17 @@ Board.prototype.configureCells = function configureCells() {
 
 Board.prototype.eachCell = function eachCell(cb) {
   this.grid.forEach(row => {
-    row.forEach(cell => cb(cell));
+    row.some(cell => cb(cell));
   });
 };
 
 Board.prototype.eachRow = function eachRow(cb) {
   this.grid.forEach(row => cb(row));
+};
+
+Board.prototype.randomCell = function randomCell() {
+  const randomRow = sample(this.grid);
+  return sample(randomRow);
 };
 
 export default Board;
