@@ -1,4 +1,5 @@
 import Board from "./board.js";
+import Exit from "./exit.js";
 import Player from "./player.js";
 import huntAndKill from "./hunt_and_kill.js";
 import drawBoardtoCanvas from "./canvas_presenter.js";
@@ -6,11 +7,12 @@ import {CELL_SIZE} from "./constants.js";
 
 const board = new Board(25, 25);
 const player = new Player();
+const exit = new Exit();
 
 board.prepare();
 board.configureCells();
-board.insertPlayer(player);
-// board.insertExit();
+board.insertObject(player);
+board.placeExit(exit);
 
 huntAndKill(board);
 

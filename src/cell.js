@@ -15,7 +15,7 @@ class Cell {
 
   unlink(cell, unlinkBoth = true) {
     this.links = this.links.filter(c => c !== cell);
-    if (unLinkBoth) {
+    if (unlinkBoth) {
       cell.unlink(this, false);
     }
     return this;

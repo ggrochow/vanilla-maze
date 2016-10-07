@@ -22,10 +22,17 @@ class Board {
     }
   }
 
-  insertPlayer(player) {
+  insertObject(object) {
     const cell = this.randomCell();
-    cell.contents = player;
-    player.cell = cell;
+    cell.contents = object;
+    object.cell = cell;
+  }
+
+  placeExit(object) {
+    // TODO: random placement.
+    const cell = this.get(0, 0);
+    cell.contents = object;
+    object.cell = cell;
   }
 
   get(row, col) {
