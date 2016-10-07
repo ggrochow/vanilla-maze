@@ -41,6 +41,10 @@ class Cell {
     }
     return neighbourArray;
   }
+
+  toString() {
+    return `${this.x}-${this.y}`;
+  }
 }
 
 export default Cell;
