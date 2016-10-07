@@ -1,4 +1,4 @@
-import { sample } from './utils';
+import {sample} from "./utils";
 
 function huntAndKill(board) {
   let neighbour;
@@ -19,7 +19,7 @@ function huntAndKill(board) {
           neighbour = sample(visitedNeighbours);
           current.link(neighbour);
 
-          return true; // TODO handle this better, currently we use some to break the eachCell loop, i think thats what im doing here.
+          return true; // TODO handle this better, currently we use some to break the eachCell loop.
         }
       });
     }

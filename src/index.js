@@ -1,8 +1,8 @@
-import Board from './board.js';
-import Player from './player.js';
-import huntAndKill from './hunt_and_kill.js';
-import drawBoardtoCanvas from './canvas_presenter.js';
-import { CELL_SIZE } from './constants.js';
+import Board from "./board.js";
+import Player from "./player.js";
+import huntAndKill from "./hunt_and_kill.js";
+import drawBoardtoCanvas from "./canvas_presenter.js";
+import {CELL_SIZE} from "./constants.js";
 
 const board = new Board(25, 25);
 const player = new Player();
@@ -10,6 +10,8 @@ const player = new Player();
 board.prepare();
 board.configureCells();
 board.insertPlayer(player);
+// board.insertExit();
+
 huntAndKill(board);
 
 document.addEventListener('DOMContentLoaded', () => {

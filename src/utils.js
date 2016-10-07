@@ -1,5 +1,4 @@
-function sample(array) {
+export function sample(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-export { sample };
